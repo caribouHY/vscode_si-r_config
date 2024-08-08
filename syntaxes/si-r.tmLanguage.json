@@ -1,0 +1,103 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Si-R config",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#commands"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#paramaters"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.number-sign.si-r",
+					"match": "^\\s*#.*"
+				}
+			]
+		},
+		"commands": {
+			"patterns": [
+				{
+					"name": "keyword.control.si-r",
+					"match": "^eof$"
+				},
+				{
+					"name": "support.class.command.common.si-r",
+					"match": "^\\s*(aaa|acl|addact|alias|backup|consoleinfo|ether|host|ip|lan|mac|mflag|password|proxydns|schedule|serverinfo|snmp|storage|stp|sysdown|syslog|sysname|telnetinfo|terminal|time|vlan|watchdog)(?=\\s)"
+				},
+				{
+					"name": "support.class.command.si-r.si-r",
+					"match": "^\\s*(answer|arpauth|auto-config|bgp|bridgegroup|certificate|dnconvinfo|domainlistinfo|dot1x|dvpn|ethergroup|lamp|loopback|loopintercept|macauth|multicast|ngn|node-trigger|ospf|policy-group|pseudo-ether|remote|resource|rip|routemanage|sflow|sysmemwatch|template|tracking|updateinfo|upnp|wan)(?=\\s)"
+				},
+				{
+					"name": "support.class.command.sr-s.si-r",
+					"match": "^\\s*(fanctl|hash|hashsecond|igmpsnoop|ip6|lacp|linkaggregation|lldp|loopdetect|nodemanager|qos|webauth)(?=\\s)"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.si-r",
+					"match": "\\\".*\\\""
+				},
+				{
+					"name": "string.other.description.si-r",
+					"match": "(?<=description)\\s(.*)$"
+				},
+				{
+					"name": "string.other.name.si-r",
+					"match": "(?<=(sysname|name|config_id|common-name|machine))\\s*\\w+(?=\\s|$)"
+				}
+			]
+		},
+		"paramaters": {
+			"patterns": [
+				{
+					"name": "keyword.other.ipv4.si-r",
+					"match": "\\s((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(/(\\d|[1-2]\\d|3[0-2]))?(?=\\s|$)"
+				},
+				{
+					"name": "keyword.other.ipv6.si-r",
+					"match": "\\s(([0-9a-f]{1,4}:){6}(:[0-9a-f]{1,4}|((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3})|:))|(([0-9a-f]{1,4}:){5}(((:[0-9a-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3})|:))|(([0-9a-f]{1,4}:){4}(((:[0-9a-f]{1,4}){1,3})|((:[0-9a-f]{1,4})?:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9a-f]{1,4}:){3}(((:[0-9a-f]{1,4}){1,4})|((:[0-9a-f]{1,4}){0,2}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9a-f]{1,4}:){2}(((:[0-9a-f]{1,4}){1,5})|((:[0-9a-f]{1,4}){0,3}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9a-f]{1,4}:){1}(((:[0-9a-f]{1,4}){1,6})|((:[0-9a-f]{1,4}){0,4}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(:(((:[0-9a-f]{1,4}){1,7})|((:[0-9a-f]{1,4}){0,5}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))(?=\\s|$)"
+				},
+				{
+					"name": "keyword.other.ipv6-ifid.si-r",
+					"match": "\\s(([0-9a-fA-F]{1,4})(:[0-9a-fA-F]{1,4}){3})(?=\\s|$)"
+				},
+				{
+					"name": "keyword.other.mac.si-r",
+					"match": "\\s(([0-9a-fA-F]{2})(:[0-9a-fA-F]{2}){5})(?=\\s|$)"
+				},
+				{
+					"name": "constant.numeric.vidlist.si-r",
+					"match": "(?<=(vlan|vid|vlan(\\s+)(untag|tag)))\\s(\\d{1,4}|\\d{1,4}-\\d{1,4})(,(\\d{1,4}|\\d{1,4}-\\d{1,4}))*(?=\\s|$)"
+				},
+				{
+					"name": "constant.numeric.time.si-r",
+					"match": "\\s(0|[1-9]\\d*)[dhms](?=\\s|$)"
+				},
+				{
+					"name": "constant.language.bool.si-r",
+					"match": "\\s(enable|disable|on|off)(?=\\s|$)"
+				},
+				{
+					"name": "constant.numeric.number.si-r",
+					"match": "\\s\\d+(?=\\s|$)"
+				}
+			]
+
+
+		}
+	},
+	"scopeName": "text.si-r"
+}

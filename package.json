@@ -7,15 +7,34 @@
     "vscode": "^1.92.0"
   },
   "categories": [
-    "Other"
+    "Programming Languages"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:si-r"
+  ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
+    "languages": [
       {
-        "command": "si-r-config.helloWorld",
-        "title": "Hello World"
+        "id": "si-r",
+        "aliases": [
+          "Si-R config",
+          "si-r"
+        ],
+        "extensions": [
+          ".sir",
+          ".srs",
+          ".srx",
+          ".config"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "si-r",
+        "scopeName": "text.si-r",
+        "path": "./syntaxes/si-r.tmLanguage.json"
       }
     ]
   },
