@@ -3,6 +3,9 @@
 	"name": "Si-R config",
 	"patterns": [
 		{
+			"include": "#invalid"
+		},
+		{
 			"include": "#comments"
 		},
 		{
@@ -16,6 +19,14 @@
 		}
 	],
 	"repository": {
+		"invalid": {
+			"patterns": [
+				{
+					"name": "invalid.illegal.character.si-r",
+					"match": "[^ \\x21\\x23-\\x7e]+"
+				}
+			]
+		},
 		"comments": {
 			"patterns": [
 				{
@@ -48,15 +59,15 @@
 			"patterns": [
 				{
 					"name": "string.quoted.double.si-r",
-					"match": "\\\".*\\\""
+					"match": "\\s\\\"[ \\x21\\x23-\\x7e]*\\\"(?=\\s|$)"
 				},
 				{
 					"name": "string.other.description.si-r",
-					"match": "(?<=description)\\s(.*)$"
+					"match": "(?<=description)\\s([\\x21\\x23-\\x7e]{1,50})$"
 				},
 				{
 					"name": "string.other.name.si-r",
-					"match": "(?<=(sysname|name|config_id|common-name|machine))\\s*\\w+(?=\\s|$)"
+					"match": "(?<=(sysname|name|config_id|common-name|machine))\\s*[\\x21\\x23-\\x7e]+(?=\\s|$)"
 				}
 			]
 		},
@@ -95,8 +106,6 @@
 					"match": "\\s\\d+(?=\\s|$)"
 				}
 			]
-
-
 		}
 	},
 	"scopeName": "text.si-r"
