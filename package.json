@@ -1,8 +1,15 @@
 {
   "name": "si-r-config",
-  "displayName": "Si-R_config",
+  "displayName": "Si-R config",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "publisher": "calibouhy",
+  "license":"Apache-2.0",
+  "icon": "image/logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caribouHY/vscode_si-r_config.git"
+  },
   "engines": {
     "vscode": "^1.92.0"
   },
