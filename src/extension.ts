@@ -7,7 +7,7 @@ export function activate(context: vscode.ExtensionContext) {
 // This method is called when your extension is deactivated
 export function deactivate() { }
 
-const COMMANDS = ["vlan", "lan", "acl", "ether", "pseudo-ether", "aaa", "template", "remote", "host", "tracking", "node-trigger", "congestion-trigger", "internal-path", "schedule"];
+const COMMANDS = ["vlan", "lan", "acl", "ether", "pseudo-ether", "aaa", "template", "remote", "host", "tracking", "node-trigger", "congestion-trigger", "internal-path", "schedule", "policy-group"];
 const COMMANDS_DESCRIPTION = ["vlan", "lan", "acl", "pseudo-ether", "ether", "template", "remote"];
 const COMMANDS_NAME = ["remote", "vlan", "host", "template", "aaa"];
 
