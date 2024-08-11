@@ -1,7 +1,7 @@
 {
   "name": "si-r-config",
-  "displayName": "Si-R config",
-  "description": "",
+  "displayName": "Si-R Config",
+  "description": "Si-R/SR-S Config Syntax Highlighting",
   "version": "0.1.0",
   "publisher": "calibouhy",
   "license":"Apache-2.0",
@@ -16,10 +16,11 @@
   "categories": [
     "Programming Languages"
   ],
-  "activationEvents": [
-    "onLanguage:si-r"
-  ],
+  "activationEvents": [],
   "main": "./out/extension.js",
+  "capabilities": {
+    "documentSymbolProvider" : "true"
+  },
   "contributes": {
     "languages": [
       {
