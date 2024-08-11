@@ -66,11 +66,11 @@ class OutlineProvider {
 				if (Number.isNaN(Number(line_list[1]))) {
 					continue;
 				}
-				let cmd_number = line_list[1];
-				
+				let cmd_number = line_list[0] + line_list[1];
+
 				// Si-R G: ether <group> <port>
-				if (line_list.length > 3 && line_list[0] === "ether" && !Number.isNaN(Number(line_list[2]))){
-					cmd_number = cmd_number + "-" + line_list[2];
+				if (line_list.length > 3 && line_list[0] === "ether" && !Number.isNaN(Number(line_list[2]))) {
+					cmd_number = cmd_number + "/" + line_list[2];
 				}
 
 				if (cmd_number !== last_cmd_number) {
@@ -89,10 +89,10 @@ class OutlineProvider {
 				if (line_list.length === 4 && line_list[2] === "description" && COMMANDS_DESCRIPTION.includes(line_list[0])) {
 					// ex. vlan 1 description XXXX
 					cmd_description_sub = line_list[3];
-				} else if (line_list.length === 5 && line_list[3] === "description" && line_list[0] === "ether"){
+				} else if (line_list.length === 5 && line_list[3] === "description" && line_list[0] === "ether") {
 					// ex. ether 1 1 description XXXX  (for Si-R G)
 					cmd_description_sub = line_list[4];
-				} else if (line_list.length === 4 && line_list[2] === "name" && COMMANDS_NAME.includes(line_list[0])){
+				} else if (line_list.length === 4 && line_list[2] === "name" && COMMANDS_NAME.includes(line_list[0])) {
 					// ex. vlan 1 name XXXX
 					cmd_description = line_list[3];
 				} else if (line_list.length === 6 && line_list[0] === "lan" && line_list[2] === "ip" && line_list[3] === "address") {
