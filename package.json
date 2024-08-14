@@ -2,7 +2,7 @@
   "name": "si-r-config",
   "displayName": "Si-R Config",
   "description": "Si-R/SR-S Config Syntax Highlighting",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "calibouhy",
   "license":"Apache-2.0",
   "icon": "image/logo.png",
